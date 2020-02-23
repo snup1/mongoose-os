@@ -1,0 +1,121 @@
+Buildt with command: "mos build --platform esp32 --build-var MGOS_ROOT_FS_SIZE=250000 --build-var APP_SLOT_SIZE=0x120000"
+
+From debug uart with - ["debug.level",3]
+
+
+load:0x40080400,len:7056
+entry 0x40080748
+I (31) boot: ESP-IDF v3.3-r2 2nd stage bootloader
+I (31) boot: compile time 15:13:50
+I (31) boot: Enabling RNG early entropy source...
+I (35) qio_mode: Enabling default flash chip QIO
+I (41) boot: SPI Speed      : 80MHz
+I (45) boot: SPI Mode       : QIO
+I (49) boot: SPI Flash Size : 4MB
+I (53) boot: Partition Table:
+I (56) boot: ## Label            Usage          Type ST Offset   Length   Flags
+I (64) boot:  0 nvs              WiFi data        01 02 00009000 00004000 00000000
+I (73) boot:  1 otadata          OTA data         01 00 0000d000 00002000 00000000
+I (81) boot:  2 app_0            OTA app          00 10 00010000 00120000 00000000
+I (89) boot:  3 fs_0             FS               01 82 00130000 0003d090 00000000
+I (97) boot:  4 app_1            OTA app          00 11 00170000 00120000 00000000
+I (106) boot:  5 fs_1             FS               01 82 00290000 0003d090 00000000
+I (114) boot: End of partition table
+I (118) boot: OTA data 0: seq 0x00000001, st 0x10, CRC 0x157a2b85, valid? 1
+I (126) boot: OTA data 1: seq 0x00000000, st 0x00, CRC 0x00000000, valid? 0
+I (134) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x2b6c8 (177864) map
+I (187) esp_image: segment 1: paddr=0x0003b6f0 vaddr=0x3ffb0000 size=0x0298c ( 10636) load
+I (191) esp_image: segment 2: paddr=0x0003e084 vaddr=0x40080000 size=0x00400 (  1024) load
+I (194) esp_image: segment 3: paddr=0x0003e48c vaddr=0x40080400 size=0x01b84 (  7044) load
+I (205) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xbe788 (780168) map
+I (408) esp_image: segment 5: paddr=0x000fe7a8 vaddr=0x40081f84 size=0x0d96c ( 55660) load
+I (434) boot: Loaded app from partition at offset 0x10000
+I (434) boot: Disabling RNG early entropy source...
+I (435) cpu_start: Pro cpu up.
+I (438) cpu_start: Application information:
+I (443) cpu_start: Project name:     c_mqtt
+I (448) cpu_start: App version:      2.17.0
+I (453) cpu_start: Compile time:     Feb 23 2020 15:13:48
+I (459) cpu_start: ELF file SHA256:  5d1130e4509cc262...
+I (465) cpu_start: ESP-IDF:          v3.3-r2
+I (470) cpu_start: Single core mode
+I (474) heap_init: Initializing. RAM available for dynamic allocation:
+I (481) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (487) heap_init: At 3FFBB238 len 00024DC8 (147 KiB): DRAM
+I (493) heap_init: At 3FFE0440 len 0001FBC0 (126 KiB): D/IRAM
+I (500) heap_init: At 40078000 len 00008000 (32 KiB): IRAM
+I (506) heap_init: At 4008F8F0 len 00010710 (65 KiB): IRAM
+I (512) cpu_start: Pro cpu start user code
+I (194) cpu_start: Chip Revision: 1
+W (194) cpu_start: Chip revision is higher than the one configured in menuconfig. Suggest to upgrade it.
+I (198) esp_core_dump_common: Init core dump to UART
+I (204) cpu_start: Starting scheduler on PRO CPU.
+
+mgos_freertos.c:175     c_mqtt 0.0.2 (20200223-151408)
+mgos_freertos.c:177     Mongoose OS 2.17.0 (20200223-151408/2.17.0-gc31a745)
+mgos_freertos.c:181     CPU: 160 MHz, FreeRTOS 8.2.0, heap: 286944 total, 255404 free
+mgos_freertos.c:183     Newlib 2.2.0
+
+esp32_main.c:116        ESP-IDF v3.3-r2
+esp32_main.c:119        Boot partition: app_0; flash: 4M
+mg_lwip_ev_mgr.c:77     Mongoose 6.16, LwIP 2.0.3
+mg_ssl_if_mbedtls.c:57  mbed TLS 2.16.3-cesanta9
+mgos_vfs_dev.c:73       fs_0: esp32part ({"label": "fs_0"}), size 250000
+mgos_vfs_dev.c:73       fs_1: esp32part ({"label": "fs_1"}), size 250000
+mgos_vfs.c:174          /: SPIFFS @ fs_0, opts {"bs":4096,"ps":256,"es":4096}
+mgos_vfs.c:347          /: size 222386, used: 91615, free: 130771
+mgos_sys_config.c:366   MAC: a4:cf:12:7d:b9:cc
+mgos_sys_config.c:374   WDT: 30 seconds
+mgos_deps_init.c:138    init i2c...
+mgos_deps_init.c:138    init atca...
+mgos_deps_init.c:138    init mqtt...
+mgos_deps_init.c:138    init shadow...
+mgos_deps_init.c:138    init aws...
+mgos_aws.c:40           AWS Greengrass enable (0)
+mgos_deps_init.c:138    init ota-http-client...
+mgos_deps_init.c:138    init ota-shadow...
+mgos_ota_shadow_lib:116 OTA over shadow initialised
+mgos_deps_init.c:138    init wifi...
+mgos_wifi.c:88          WiFi STA: Using config 0 ()
+mgos_wifi.c:464         WiFi mode: AP+STA
+esp32_wifi.c:231        cur mode: 0
+esp32_wifi.c:196        WiFi mode: AP
+I (769) wifi: wifi driver task: 3ffc3a74, prio:23, stack:3584, core=0
+I (779) wifi: wifi firmware version: aeed694
+I (789) wifi: config NVS flash: enabled
+I (789) wifi: config nano formating: disabled
+I (789) wifi: Init dynamic tx buffer num: 32
+I (799) wifi: Init data frame dynamic rx buffer num: 64
+I (799) wifi: Init management frame dynamic rx buffer num: 64
+I (809) wifi: Init management short buffer num: 32
+I (809) wifi: Init static rx buffer size: 1600
+I (819) wifi: Init static rx buffer num: 10
+I (819) wifi: Init dynamic rx buffer num: 0
+W (819) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration
+I (959) phy: phy_version: 4102, 2fa7a43, Jul 15 2019, 13:06:06, 0, 2
+
+
+...
+...
+Then, a lot of downloads happens and seems ok, but at app. 80% finish:
+
+EV_MQTT_PUBLISH
+
+main.c:439              got command: [{"state":{"reported":{"ota":{"message":"Waiting for data","status":1,"is_committed":true,"partition":0,"progress_percent":80}}},"metadata":{"reported":{"ota":{"message":{"timestamp":1582471323},"status":{"timestamp":1582471323},"is_committed":{"timestamp":1582471323},"partition":{"timestamp":1582471323},"progress_percent":{"timestamp":1582471323}}}},"version":3807,"timestamp":1582471323,"clientToken":"0ca24a2c"}]
+mg_rpc.c:482            0x3ffc8c0c GOT FRAME (2859): {"id":522,"method":"OTA.Write","params":{"data":"AK0CgSr94AgAKMEgQpBARPBRFf1QZKBI9htESfbGe/1o4UImOGYUIL0CrQeBKP3gCACIwYBIkEBE8CEL/SBkoEhGG0RJRoZx/UIhERZ0BAwLrQLlKPuMGgZt/UiySBRARCVY0VeUAkZp/WE20ygGrBIyIkecw6IiSCKiS+AKAN0KDBqx+/ztC/H//MH//CJhAOADAAb//4jBgEiQQETwUfL8UGSgUsIogiERQiYSG0SSI2OJoikJUmNjQmYSxlP9MiEaIqABFmMQoiENZXr6kAAAAABBHNNRcecoBKgFIiIS4AIABvb/AIwWBur9DApG7v1owa0CYEaQQETwgdv8gGSgSLZCxAFCZguB6PzgCAAGP/0AUeP8VxQCxhj+hhD+iLJ8DfgY0N8QQiEZQN0g2RgGXP9I0UDQJMCdAYiy0Vbn+BjQ3xCQ3SDZGBZk1Ibz/1IlOGYVbAac/0g3R2QCRq//xrj/AKjBssEQkmEcgdD84AgADGyrtKLBEIHO/OAIAJIhHFIpESZVAsbX/wwVoFaTRq39kiUUHA2Q3RBWHZVtDagS2fE98D3wPfA98OISC5gaRmP+AABRu/xXiQKGh/9G5f9BuPxHiQIGif9G4v8d8AAASBH7PzZBACH+/wwZiAIiCFCCCFKAgsAMAoApgx3wAACgEPs/HChBPyzmQD+Y7UA/jAgAADZhADGW/EhTnIQx+P+CAgCAgAQ4AzLTA1ID7vwYDBMGDgAAACHG0igCrAIyIkecs6IiSOAKAN0KDBqx7v/tCyHv//Hr/8Hs/ykB4AMABv//YiQmhgoAGzMwMHRAiKBiKCYMbEu2IKIgnAaBkPzgCACM2o0DN6XeDAYGAQCNAzel1C0GHfAAAACgCAAANmEAgXP8uFici4HV/4gIgtgDkgjuFokEgisnhxJGDBiGDAAAIaPSiAKsCCIoR5yyoihI4AoA3QoMGrHL/+0Lge//8cj/wcn/iQHgAgAG//+iKiYnGg4biICAdLCooIep7gwCHfAMEh3wAAAAAAAAAAAAAAAAAABFGaZ7fQK4C4tfVnjr0Hu5ivcAaO+xOemIr84OEmwPGLNQSwMEFAAAAAAAxnlXUOdBO++Q0AMAkNADABMAAABjX21xdHQtMC4wLjIvZnMuaW1nAYABAAEAAQABAAEAAQABAAEAAAACAAIAAgACAAIA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////KQQAAAGAAAD4fwAA3gYAAAFyb290LUNBX21xdHQucGVtAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////////9gCAAMABAAFAAYABwAIAAkA//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8BAAAA/C0tLS0tQkVHSU4gQ0VSVElGSUNBVEUtLS0tLQ0KTUlJRTB6Q0NBN3VnQXdJQkFnSVFHTnJSbmlaOTZMdEtJVmpOekdzN1NqQU5CZ2txaGtpRzl3MEJBUVVGQURDQg0KeWpFTE1Ba0dBMVVFQmhNQ1ZWTXhGekFWQmdOVkJBb1REbFpsY21sVGFXZHVMQ0JKYm1NdU1SOHdIUVlEVlFRTA0KRXhaV1pYSnBVMmxuYmlCVWNuVnpkQ0JPWlhSM2IzSnJNVG93T0FZRFZRUUxFekVvWXlrZ01qQXdOaUJXWlhKcA0KVTJsbmJpd2dTVzVqTGlBdElFWnZjaUJoAQABAPxkWFJvYjNKcGVtVmtJSFZ6WlNCdmJteDVNVVV3UXdZRFZRUURFenhXDQpaWEpwVTJsbmJpQkRiR0Z6Y3lBeklGQjFZbXhwWXlCUWNtbHRZWEo1SUVObGNuUnBabWxqWVhScGIyNGdRWFYwDQphRzl5YVhSNUlDMGdSelV3SGhjTk1EWXhNVEE0TURBd01EQXdXaGNOTXpZd056RTJNak0xT1RVNVdqQ0J5akVMDQpNQWtHQTFVRUJoTUNWVk14RnpBVkJnTlZCQW9URGxabGNtbFRhV2R1TENCSmJtTXVNUjh3SFFZRFZRUUxFeFpXDQpaWEpwVTJsbmJpQgEAAgD8VWNuVnpkQ0JPWlhSM2IzSnJNVG93T0FZRFZRUUxFekVvWXlrZ01qQXdOaUJXWlhKcFUybG4NCmJpd2dTVzVqTGlBdElFWnZjaUJoZFhSb2IzSnBlbVZrSUhWelpTQnZibXg1TVVVd1F3WURWUVFERXp4V1pYSnANClUybG5iaUJEYkdGemN5QXpJRkIxWW14cFl5QlFjbWx0WVhKNUk=","offset":1056768},"error":{"code":-1,"message":"-1 Failed to start write"}}
+
+mg_rpc.c:376            '522' '' '' 'OTA.Write'
+mgos_rpc.c:373          Called 'OTA.Write', acl for it: '*'
+mg_rpc.c:293            OTA.Write via WSS_out 148.251.54.236:443
+mg_rpc.c:612            0x3ffc8c0c SEND FRAME (90): {"id":522,"src":"7DB9CC","error":{"code":-1,"message":"-1 Failed to start write"}} -> 1
+mg_rpc.c:508            0x3ffc8c0c FRAME SENT (1)
+mg_rpc.c:482            0x3ffc8c0c GOT FRAME (30): {"id":523,"method":"OTA.End"}
+
+mg_rpc.c:376            '523' '' '' 'OTA.End'
+mgos_rpc.c:373          Called 'OTA.End', acl for it: '*'
+mg_rpc.c:293            OTA.End via WSS_out 148.251.54.236:443
+mg_rpc.c:612            0x3ffc8c0c SEND FRAME (90): {"id":523,"src":"Nor-ide_7DB9CC","error":{"code":-1,"message":"-1 Failed to start write"}} -> 1
+mg_rpc.c:508            0x3ffc8c0c FRAME SENT (1)
+
+
+Stops here, nothing happens after this, the existing program continues....
